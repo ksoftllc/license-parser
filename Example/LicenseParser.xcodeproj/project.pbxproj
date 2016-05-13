@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13E9C4B2D1F991F50C14E6CE /* Pods_LicenseParser_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3E4B55CEA15206E0E6869B /* Pods_LicenseParser_Tests.framework */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* LicenseParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* LicenseParserSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,7 +16,7 @@
 		38F8443C525F6AD91B6CEAE5 /* Pods-LicenseParser_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LicenseParser_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LicenseParser_Tests/Pods-LicenseParser_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* LicenseParser_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LicenseParser_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* LicenseParserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseParserSpec.swift; sourceTree = "<group>"; };
 		8B139F4D8B0CD042F6C7273C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9D3E4B55CEA15206E0E6869B /* Pods_LicenseParser_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LicenseParser_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A454989729C07B6C55438A36 /* LicenseParser.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LicenseParser.podspec; path = ../LicenseParser.podspec; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* LicenseParserSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -218,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* LicenseParserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
