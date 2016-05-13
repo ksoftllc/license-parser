@@ -1,0 +1,19 @@
+{
+  "name": "LicenseParser",
+  "version": "0.1.0",
+  "summary": "A short description of LicenseParser.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/LicenseParser",
+  "license": "MIT",
+  "authors": {
+    "Clayton LZ": "clayton@hauz.io"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/LicenseParser.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LicenseParser/Classes/**/*"
+}
