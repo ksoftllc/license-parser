@@ -1,6 +1,0 @@
-framework module LicenseParser {
-  umbrella header "LicenseParser-umbrella.h"
-
-  export *
-  module * { export * }
-}
