@@ -18,7 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+                        The License Parser pod makes it easy to add support for parsing
+                        the information within PDF-417 barcodes found on the back of
+                        US and Canadian driver's licenses adhering to the AAMVA Version 8
+                        standard.
                        DESC
 
   s.homepage         = "https://github.com/sealz/license-parser"
@@ -27,15 +30,6 @@ TODO: Add long description of the pod here.
   s.source           = { :git => "https://github.com/sealz/license-parser.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-
   s.source_files = 'LicenseParser/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'LicenseParser' => ['LicenseParser/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'CrossroadRegex'
 end
