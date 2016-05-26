@@ -15,5 +15,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "LicenseParser/Classes/**/*"
+  "source_files": "LicenseParser/Classes/**/*",
+  "dependencies": {
+    "CrossroadRegex": [
+
+    ]
+  }
 }

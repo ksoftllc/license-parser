@@ -84,12 +84,18 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/Boilerplate/Boilerplate.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/CrossroadRegex/CrossroadRegex.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LicenseParser/LicenseParser.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Nimble/Nimble.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Quick/Quick.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Result/Result.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/Boilerplate/Boilerplate.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/CrossroadRegex/CrossroadRegex.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LicenseParser/LicenseParser.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Nimble/Nimble.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Quick/Quick.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Result/Result.framework"
 fi
