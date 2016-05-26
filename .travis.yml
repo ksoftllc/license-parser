@@ -6,10 +6,10 @@ language: objective-c
 cache: cocoapods
 podfile: Example/Podfile
 rvm:
-- 2.2.3
+  - 2.2.3
 before_install:
-- gem install cocoapods # Since Travis is not always on latest version
-- pod install --project-directory=Example
-script:
-- set -o pipefail && xcodebuild test -workspace Example/LicenseParser.xcworkspace -scheme LicenseParser-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+  - gem install cocoapods --no-ri --no-rdoc # Since Travis is not always on latest version
+  - pod install --project-directory=Example
+  - brew update
+  - brew install xctool
+script: xctool -workspace Example/LicenseParser.xcworkspace -scheme LicenseParser-Example test -test-sdk iphonesimulator9.3
