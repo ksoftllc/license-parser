@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "LicenseParser"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of LicenseParser."
+  s.version          = "0.4.0"
+  s.summary          = "Driver's License Parser for US Licenses implementing the AAMVA PDF-417 standard."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,14 +21,12 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/LicenseParser"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/sealz/license-parser"
   s.license          = 'MIT'
   s.author           = { "Clayton LZ" => "clayton@hauz.io" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/LicenseParser.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/sealz/license-parser.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'LicenseParser/Classes/**/*'
   
