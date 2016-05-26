@@ -9,7 +9,6 @@ rvm:
   - 2.2.3
 before_install:
   - gem install cocoapods --no-ri --no-rdoc # Since Travis is not always on latest version
-  - pod setup
   - pod install --project-directory=Example
   - brew update
   - brew install xctool
