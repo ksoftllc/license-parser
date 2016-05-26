@@ -50,29 +50,36 @@ ZAC
 ```
 
 ## Supported Fields
-| Identifier | Name | Description | Type |
-| :-----: | ----- | ------- | ------- |
-| DAC | First Name | Customer First Name | String |
-| DCS | Last Name | Customer Last Name | String |
-| DAD | Middle Name | Customer Middle Name | String |
-| DBA | Expiration Date | Document Expiration Date | NSDate |
-| DBD | Issue Date | Document Issue Date | NSDate |
-| DBB | Date of Birth | Customer Date of Birth | NSDate |
-| DBC | Gender | Customer Gender | Enum |
-| DAY | Eye Color | Customer Eye Color | Enum|
-| DAZ | Hair Color | Customer Hair Color | Enum|
-| DAU | Height | Customer Height (in inches) | Double |
-| DAG | Street Address | Customer Street Address | String |
-| DAH | Second Street Address | Customer Street Address Line 2 | String |
-| DAI | City | Customer City | String |
-| DAJ | State | Customer State | String |
-| DAK | Postal Code | Customer Postal Code | String |
-| DAQ | Customer ID | Unique Customer ID Number | String |
-| DCF | Document ID | Unique Document ID Number | String |
-| DCG | Issuing Country | Issuing Country | Enum |
-| DDG | Middle Name Truncation | Was Middle Name truncated? | Enum |
-| DDF | First Name Truncation | Was First Name truncated? | Enum|
-| DDE | Last Name Truncation | Was Last Name truncated? | Enum|
+| Identifier | Name | Description | Type | `ParsedLicense` Attribute |
+| :-----: | ----- | ------- | ------- | -------- |
+| DAC | First Name | Customer First Name | String | `firstName` |
+| DCS | Last Name | Customer Last Name | String | `lastName` |
+| DAD | Middle Name | Customer Middle Name | String | `middleName` |
+| DBA | Expiration Date | Document Expiration Date | NSDate | `expirationDate` |
+| DBD | Issue Date | Document Issue Date | NSDate | `issueDate` |
+| DBB | Date of Birth | Customer Date of Birth | NSDate | `dateOfBirth` |
+| DBC | Gender | Customer Gender | Enum | `gender` |
+| DAY | Eye Color | Customer Eye Color | Enum| `eyeColor` |
+| DAZ | Hair Color | Customer Hair Color | Enum| `hairColor` |
+| DAU | Height | Customer Height (in inches) | Double | `height` |
+| DAG | Street Address | Customer Street Address | String | `streetAddress` |
+| DAH | Second Street Address | Customer Street Address Line 2 | String | `streetAddressSupplement` |
+| DAI | City | Customer City | String | `city` |
+| DAJ | State | Customer State | String | `state` |
+| DAK | Postal Code | Customer Postal Code | String | `postalCode` |
+| DAQ | Customer ID | Unique Customer ID Number | String | `customerId` |
+| DCF | Document ID | Unique Document ID Number | String | `documentId` |
+| DCG | Issuing Country | Issuing Country | Enum | `issuingCountry` |
+| DDG | Middle Name Truncation | Was Middle Name truncated? | Enum | `middleNameTruncation` |
+| DDF | First Name Truncation | Was First Name truncated? | Enum| `firstNameTruncation` |
+| DDE | Last Name Truncation | Was Last Name truncated? | Enum| `lastNameTruncation` |
+| DCI | Place of Birth | Country and municipality and/or state/province | String | `placeOfBirth` |
+| DCJ | Audit Information | A string of letters and/or numbers that identifies when, where, and by whom a driver license/ID card was made. | String | `auditInformation` |
+| DCK | Inventory Control | A string of letters and/or numbers that is affixed to the raw materials (card stock, laminate, etc.) used in producing driver licenses and ID cards. | String | `inventoryControlNumber` |
+| DBN | Last Name Alias | Other Last Name by which cardholder is known. | String | `lastNameAlias` |
+| DBG | First Name Alias | Other First Name by which the cardholder is known. | String | `firstNameAlias` |
+| DBS | Suffix Alias | Other suffix by which cardholder is known | String | `suffixAlias` |
+| DCU | Name Suffix | Name Suffix | Enum | `suffix` |
 
 ## Installation
 
@@ -83,9 +90,28 @@ it, simply add the following line to your Podfile:
 pod "LicenseParser"
 ```
 
-## Author
+## Usage
 
-Clayton LZ, clayton@hauz.io
+```swift
+
+// First get the PDF-417 barcode data by scanning the barcode on the license
+let pdf417Data: String = MyFakeLicenseScanner.scan()
+
+// Create a parser with that data
+let parser: Parser = Parser(data: pdf417Data)
+
+// Ask the parser to parse it
+let parsedLicense: ParsedLicense = parser.parse()
+
+print(parsedLicense.firstName)
+// => Optional("John")
+print(parsedLicense.middleName)
+// => Optional("Quincy")
+print(parsedLicense.lastName)
+// => Optional("Public")
+
+```
+
 
 ## License
 

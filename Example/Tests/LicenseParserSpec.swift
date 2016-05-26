@@ -5,6 +5,310 @@ import LicenseParser
 class LicenseParserSpec: QuickSpec {
   override func spec() {
     
+    describe("Parsing the Name Suffix"){
+      context("when the suffix is present"){
+        context("when the suffix is JR"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUJR\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Junior))
+          }
+        }
+        context("when the suffix is senior"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUSR\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Senior))
+          }
+        }
+        context("when the suffix is 1ST"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU1ST\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.First))
+          }
+        }
+        context("when the suffix is 2ND"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU2ND\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Second))
+          }
+        }
+        context("when the suffix is 3RD"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU3RD\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Third))
+          }
+        }
+        context("when the suffix is 4TH"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU4TH\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fourth))
+          }
+        }
+        context("when the suffix is 5TH"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU5TH\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fifth))
+          }
+        }
+        context("when the suffix is 6TH"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU6TH\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Sixth))
+          }
+        }
+        context("when the suffix is 7TH"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU7TH\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Seventh))
+          }
+        }
+        context("when the suffix is 8TH"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU8TH\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Eighth))
+          }
+        }
+        context("when the suffix is 9TH"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCU9TH\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Ninth))
+          }
+        }
+        context("when the suffix is I"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUI\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.First))
+          }
+        }
+        context("when the suffix is II"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUII\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Second))
+          }
+        }
+        context("when the suffix is III"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUIII\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Third))
+          }
+        }
+        context("when the suffix is IV"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUIV\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fourth))
+          }
+        }
+        context("when the suffix is V"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUV\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fifth))
+          }
+        }
+        context("when the suffix is VI"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUVI\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Sixth))
+          }
+        }
+        context("when the suffix is VII"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUVII\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Seventh))
+          }
+        }
+        context("when the suffix is VIII"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUVIII\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Eighth))
+          }
+        }
+        context("when the suffix is IX"){
+          it("should reveal the correct suffix"){
+            let sut = LicenseParser.Parser(data: "DCUIX\n")
+            let result: LicenseParser.ParsedLicense = sut.parse()
+            expect(result.suffix).to(equal(LicenseParser.NameSuffix.Ninth))
+          }
+        }
+      }
+      context("when the suffix is empty"){
+        it("should reveal an unknown suffix"){
+          let sut = LicenseParser.Parser(data: "DCU\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.suffix).to(equal(LicenseParser.NameSuffix.Unknown))
+        }    
+      }
+      context("when the suffix is missing"){
+        it("should reveal an unknown suffix"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.suffix).to(equal(LicenseParser.NameSuffix.Unknown))
+        }
+      }
+    }
+
+    
+    describe("Parsing the suffix alias"){
+      context("when the suffix alias is present"){
+        it("should reveal the suffix alias"){
+          let sut = LicenseParser.Parser(data: "DBSJR\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.suffixAlias).to(equal("JR"))
+        }
+      }
+      context("when the suffix alias is empty"){
+        it("should reveal an empty suffix alias"){
+          let sut = LicenseParser.Parser(data: "DBS\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.suffixAlias).to(beNil())
+        }
+      }
+      context("when the suffix alias is missing"){
+        it("should reveal an empty suffix alias"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.suffixAlias).to(beNil())
+        }
+      }
+    }
+    
+    describe("Parsing the first name alias"){
+      context("when the first name alias is present"){
+        it("should reveal the first name alias"){
+          let sut = LicenseParser.Parser(data: "DBGJOHNALIAS\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.firstNameAlias).to(equal("JOHNALIAS"))
+        }
+      }
+      context("when the first name alias is empty"){
+        it("should reveal an empty first name alias"){
+          let sut = LicenseParser.Parser(data: "DBG\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.firstNameAlias).to(beNil())
+        }
+      }
+      context("when the first name alias is missing"){
+        it("should reveal an empty first name alias"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.firstNameAlias).to(beNil())
+        }
+      }
+    }
+    
+    describe("Parsing the last name alias"){
+      context("when the last name alias is present"){
+        it("should reveal the last name alias"){
+          let sut = LicenseParser.Parser(data: "DBNPUBLICALIAS\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.lastNameAlias).to(equal("PUBLICALIAS"))
+        }
+      }
+      context("when the last name alias is empty"){
+        it("should reveal an empty last name alias"){
+          let sut = LicenseParser.Parser(data: "DBN\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.lastNameAlias).to(beNil())
+        }
+      }
+      context("when the last name alias is missing"){
+        it("should reveal an empty last name alias"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.lastNameAlias).to(beNil())
+        }
+      }
+    }
+    
+    describe("Parsing the Inventory Control Number"){
+      context("when the inventory control number is present"){
+        it("should reveal the inventory control number"){
+          let sut = LicenseParser.Parser(data: "DCK12345678900000000000\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.inventoryControlNumber).to(equal("12345678900000000000"))
+        }
+      }
+      context("when the inventory control number is empty"){
+        it("should reveal an empty inventory control number"){
+          let sut = LicenseParser.Parser(data: "DCK\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.inventoryControlNumber).to(beNil())
+        }
+      }
+      context("when the inventory control number is missing"){
+        it("should reveal an empty inventory control number"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.inventoryControlNumber).to(beNil())
+        }
+      }
+    }
+    
+    describe("Parsing the Audit Information"){
+      context("when the audit information is present"){
+        it("should reveal the audit information"){
+          let sut = LicenseParser.Parser(data: "DCJCA1234BBB\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.auditInformation).to(equal("CA1234BBB"))
+        }
+      }
+      context("when the audit information is empty"){
+        it("should reveal an empty audit information"){
+          let sut = LicenseParser.Parser(data: "DCJ\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.auditInformation).to(beNil())
+        }
+      }
+      context("when the audit information is missing"){
+        it("should reveal an empty audit information"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.auditInformation).to(beNil())
+        }
+      }
+    }
+    
+    describe("Parsing the place of birth"){
+      context("when the place of birth is present"){
+        it("should reveal the place of birth"){
+          let sut = LicenseParser.Parser(data: "DCICALIFORNIA, USA\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.placeOfBirth).to(equal("CALIFORNIA, USA"))
+        }
+      }
+      context("when the place of birth is empty"){
+        it("should reveal an empty place of birth"){
+          let sut = LicenseParser.Parser(data: "DCI\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.placeOfBirth).to(beNil())
+        }
+      }
+      context("when the place of birth is missing"){
+        it("should reveal an empty place of birth"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.placeOfBirth).to(beNil())
+        }
+      }
+    }
+    
     describe("Parsing the Hair Color"){
       context("when the hair color is present"){
         context("when the hair color is Bald"){

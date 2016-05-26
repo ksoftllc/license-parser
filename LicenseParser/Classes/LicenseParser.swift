@@ -32,7 +32,14 @@ public class Parser{
     "firstNameTruncation"     : "DDF",
     "lastNameTruncation"      : "DDE",
     "streetAddressSupplement" : "DAH",
-    "hairColor"               : "DAZ"
+    "hairColor"               : "DAZ",
+    "placeOfBirth"            : "DCI",
+    "auditInformation"        : "DCJ",
+    "inventoryControlNumber"  : "DCK",
+    "lastNameAlias"           : "DBN",
+    "firstNameAlias"          : "DBG",
+    "suffixAlias"             : "DBS",
+    "suffix"                  : "DCU"
   ]
   
   public init(data: String){
@@ -61,7 +68,14 @@ public class Parser{
       firstNameTruncation     : parseTruncationStatus("firstNameTruncation"),
       lastNameTruncation      : parseTruncationStatus("lastNameTruncation"),
       streetAddressSupplement : parseString("streetAddressSupplement"),
-      hairColor               : parseHairColor()
+      hairColor               : parseHairColor(),
+      placeOfBirth            : parseString("placeOfBirth"),
+      auditInformation        : parseString("auditInformation"),
+      inventoryControlNumber  : parseString("inventoryControlNumber"),
+      lastNameAlias           : parseString("lastNameAlias"),
+      firstNameAlias          : parseString("firstNameAlias"),
+      suffixAlias             : parseString("suffixAlias"),
+      suffix                  : parseNameSuffix()
     )
   }
   
@@ -171,6 +185,37 @@ public class Parser{
     }
   }
   
+  private func parseNameSuffix() -> NameSuffix{
+    guard let suffix = parseString("suffix") else { return .Unknown }
+    
+    switch suffix{
+    case "JR":
+      return .Junior
+    case "SR":
+      return .Senior
+    case "1ST", "I":
+      return .First
+    case "2ND", "II":
+      return .Second
+    case "3RD", "III":
+      return .Third
+    case "4TH", "IV":
+      return .Fourth
+    case "5TH", "V":
+      return .Fifth
+    case "6TH", "VI":
+      return .Sixth
+    case "7TH", "VII":
+      return .Seventh
+    case "8TH", "VIII":
+      return .Eighth
+    case "9TH", "IX":
+      return .Ninth
+    default:
+      return .Unknown
+    }
+  }
+  
   private func parseHairColor() -> HairColor{
     guard let color = parseString("hairColor") else { return .Unknown }
     
@@ -201,109 +246,3 @@ public class Parser{
   }
 }
 
-public enum IssuingCountry{
-  case UnitedStates
-  case Canada
-  case Unknown
-}
-
-public enum Gender{
-  case Male
-  case Female
-  case Unknown
-  case Other
-}
-
-public enum EyeColor{
-  case Black
-  case Blue
-  case Brown
-  case Gray
-  case Green
-  case Hazel
-  case Maroon
-  case Pink
-  case Dichromatic
-  case Unknown
-}
-
-public enum HairColor{
-  case Bald
-  case Black
-  case Blond
-  case Brown
-  case Grey
-  case Red
-  case Sandy
-  case White
-  case Unknown
-}
-
-public enum Truncation{
-  case Truncated
-  case None
-  case Unknown
-}
-
-public struct License: ParsedLicense{
-  public var firstName: String?
-  public var lastName: String?
-  public var middleName: String?
-  public var expirationDate: NSDate?
-  public var issueDate: NSDate?
-  public var dateOfBirth: NSDate?
-  public var gender: LicenseParser.Gender
-  public var eyeColor: LicenseParser.EyeColor
-  public var height: Double?
-  public var streetAddress: String?
-  public var city: String?
-  public var state: String?
-  public var postalCode: String?
-  public var customerId: String?
-  public var documentId: String?
-  public var country: LicenseParser.IssuingCountry
-  public var middleNameTruncation: LicenseParser.Truncation
-  public var firstNameTruncation: LicenseParser.Truncation
-  public var lastNameTruncation: LicenseParser.Truncation
-  public var streetAddressSupplement: String?
-  public var hairColor: LicenseParser.HairColor
-  
-  public func isExpired() -> Bool {
-    guard let withDate = self.expirationDate else { return false }
-    guard NSDate().compare(withDate) == NSComparisonResult.OrderedDescending else { return false }
-    return true
-  }
-  
-  public func hasBeenIssued() -> Bool {
-    guard let withDate = self.issueDate else { return false }
-    guard NSDate().compare(withDate) == NSComparisonResult.OrderedDescending else { return false }
-    return true
-  }
-}
-
-public protocol ParsedLicense{
-  var firstName: String? { get set }
-  var lastName: String? { get set }
-  var middleName: String? { get set }
-  var expirationDate: NSDate? { get set }
-  var issueDate: NSDate? { get set }
-  var dateOfBirth: NSDate? { get set }
-  var gender: LicenseParser.Gender { get set }
-  var eyeColor: LicenseParser.EyeColor { get set }
-  var height: Double? { get set }
-  var streetAddress: String? { get set }
-  var city: String? { get set }
-  var state: String? { get set }
-  var postalCode: String? { get set }
-  var customerId: String? { get set }
-  var documentId: String? { get set }
-  var country: LicenseParser.IssuingCountry { get set }
-  var middleNameTruncation: LicenseParser.Truncation { get set }
-  var firstNameTruncation: LicenseParser.Truncation { get set }
-  var lastNameTruncation: LicenseParser.Truncation { get set }
-  var streetAddressSupplement: String? { get set }
-  var hairColor: LicenseParser.HairColor { get set }
-  
-  func isExpired() -> Bool
-  func hasBeenIssued() -> Bool
-}
