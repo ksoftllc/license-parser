@@ -18,10 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                        The License Parser pod makes it easy to add support for parsing
-                        the information within PDF-417 barcodes found on the back of
-                        US and Canadian driver's licenses adhering to the AAMVA Version 8
-                        standard.
+  Easily parse the information within PDF-417 barcodes found on the back of
+  US and Canadian driver's licenses adhering to the AAMVA Version 8
+  standard.
                        DESC
 
   s.homepage         = "https://github.com/sealz/license-parser"

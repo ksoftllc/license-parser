@@ -1,14 +1,15 @@
 # LicenseParser
+[![Build Status](https://travis-ci.org/sealz/license-parser.svg?branch=0.4.0)](https://travis-ci.org/sealz/license-parser)
 
-## Example
+Easily parse the information within PDF-417 barcodes found on the back of
+US and Canadian driver's licenses adhering to the AAMVA Version 8
+standard.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
+# Installation
 ```ruby
-# Podfile
-use_frameworks!
+  use_frameworks!
+
+  pod 'LicenseParser'
 ```
 
 ## AAMVA Standard
@@ -109,9 +110,7 @@ print(parsedLicense.middleName)
 // => Optional("Quincy")
 print(parsedLicense.lastName)
 // => Optional("Public")
-
 ```
-
 
 ## License
 
