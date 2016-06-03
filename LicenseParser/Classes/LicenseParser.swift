@@ -75,7 +75,8 @@ public class Parser{
       lastNameAlias           : parseString("lastNameAlias"),
       firstNameAlias          : parseString("firstNameAlias"),
       suffixAlias             : parseString("suffixAlias"),
-      suffix                  : parseNameSuffix()
+      suffix                  : parseNameSuffix(),
+      version                 : parseVersion()
     )
   }
   
@@ -108,6 +109,15 @@ public class Parser{
     guard let parsedDate = formatter.dateFromString(dateString) else { return nil }
     
     return parsedDate
+  }
+  
+  private func parseVersion() -> String?{
+    guard let regex        = "ANSI [0-9]{6}([0-9]{2}).*\n".r else { return nil }
+    guard let match        = regex.findFirst(data) else { return nil }
+    guard let matchedGroup = match.group(1) else { return nil }
+    guard !matchedGroup.isEmpty else { return nil }
+    
+    return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
   }
   
   private func parseExpirationDate() -> NSDate?{

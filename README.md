@@ -115,3 +115,9 @@ print(parsedLicense.lastName)
 ## License
 
 LicenseParser is available under the MIT license. See the LICENSE file for more info.
+
+## Change Log
+
+`0.5.0`
+
+* Added parsing of the AAMVA Version from the document

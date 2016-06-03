@@ -5,6 +5,30 @@ import LicenseParser
 class LicenseParserSpec: QuickSpec {
   override func spec() {
     
+    describe("Parsing the AAMVA Document Standard"){
+      context("when the version is present"){
+        it("should reveal the correct version number"){
+          let sut = LicenseParser.Parser(data: "ANSI 636026080102DL00410288ZA03290015DLDAQD12345678\n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.version).to(equal("08"))
+        }
+      }
+      context("when the version is missing"){
+        it("should reveal an empty version number"){
+          let sut = LicenseParser.Parser(data: "")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.version).to(beNil())
+        }
+      }
+      context("when the version is empty"){
+        it("should reveal an empty version number"){
+          let sut = LicenseParser.Parser(data: "ANSI \n")
+          let result: LicenseParser.ParsedLicense = sut.parse()
+          expect(result.version).to(beNil())
+        }
+      }
+    }
+    
     describe("Parsing the Name Suffix"){
       context("when the suffix is present"){
         context("when the suffix is JR"){
