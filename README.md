@@ -1,5 +1,7 @@
 # LicenseParser
 [![Build Status](https://travis-ci.org/sealz/license-parser.svg?branch=0.4.0)](https://travis-ci.org/sealz/license-parser)
+[![Code Climate](https://codeclimate.com/github/sealz/license-parser/badges/gpa.svg)](https://codeclimate.com/github/sealz/license-parser)
+[![Issue Count](https://codeclimate.com/github/sealz/license-parser/badges/issue_count.svg)](https://codeclimate.com/github/sealz/license-parser)
 
 Easily parse the information within PDF-417 barcodes found on the back of
 US and Canadian driver's licenses adhering to the AAMVA Version 8
