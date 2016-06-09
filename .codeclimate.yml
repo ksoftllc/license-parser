@@ -2,6 +2,11 @@
 engines:
   tailor:
     enabled: true
+    checks:
+      comment-whitespace:
+        enabled: false
+      colon-whitespace:
+        enabled: false
   fixme:
     enabled: true
 ratings:
