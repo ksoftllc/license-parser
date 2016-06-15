@@ -3,7 +3,7 @@ PODS:
     - Result (~> 2.0)
   - CrossroadRegex (0.6.0):
     - Boilerplate (~> 0.1)
-  - LicenseParser (0.4.0):
+  - LicenseParser (0.5.0):
     - CrossroadRegex
   - Nimble (4.0.1)
   - Quick (0.9.2)
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Boilerplate: f98726f987fd525f261cf005dd8777212a1647a5
   CrossroadRegex: fa21315ceb7d30fe507481e81a705f3915210b6c
-  LicenseParser: 0f92e59a6719b5e9eb7d804e87e2d3d4326e3e40
+  LicenseParser: 67f3b0d0f041b5b68c333ad54ec6f2539962339c
   Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
   Result: 9e75e1111c774c6ac594e14907b15057053a7959

@@ -1,0 +1,11 @@
+include:
+    - LicenseParser/Classes
+exclude:
+    - '**Spec.swift'   # Ignore Swift files that end in "Tests"
+    - Example/Pods       # Ignore Swift files under "Source/Pods/"
+except:
+    - parenthesis-whitespace
+    - colon-whitespace
+    - brace-style
+    - trailing-whitespace
+    - function-whitespace
