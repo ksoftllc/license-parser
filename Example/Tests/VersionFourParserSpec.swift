@@ -3,14 +3,14 @@ import Quick
 import Nimble
 import LicenseParser
 
-class VersionEightParserSpec: QuickSpec {
+class VersionFourParserSpec: QuickSpec {
   override func spec() {
 
-    describe("Parsing Data Adhereing to the 2013 AAMVA DL/ID Card Design Standard (aka version 8)"){
+    describe("Parsing Data Adhereing to the 2009 AAMVA DL/ID Card Design Standard (aka version 4)"){
       describe("Parsing the AAMVA Document Standard"){
         context("when the version is present"){
           it("should reveal the correct version number"){
-            let sut = LicenseParser.Parser(data: "ANSI 636026080102DL00410288ZA03290015DLDAQD12345678\n")
+            let sut = LicenseParser.Parser(data: "ANSI 636026080102DL00410288ZA03290015DL\n")
             let result: LicenseParser.ParsedLicense = sut.parse()
             expect(result.version).to(equal("08"))
           }
@@ -332,7 +332,7 @@ class VersionEightParserSpec: QuickSpec {
           it("should reveal the document id"){
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
-            expect(result.documentId).to(equal("83D9BN217QO983B1"))
+            expect(result.documentId).to(equal("04-29-2016 Rev 07-15-2009"))
           }
         }
       }
@@ -365,7 +365,6 @@ class VersionEightParserSpec: QuickSpec {
             expect(result.state).to(equal("CA"))
           }
         }
-
       }
 
       describe("Parsing the City"){
@@ -393,10 +392,9 @@ class VersionEightParserSpec: QuickSpec {
           it("should reveal the height in inches"){
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
-            expect(result.height).to(equal(69))
+            expect(result.height).to(equal(76))
           }
         }
-
       }
 
       describe("Parsing Eye Color"){
@@ -546,7 +544,6 @@ class VersionEightParserSpec: QuickSpec {
             expect(result.lastName).to(equal("PUBLIC"))
           }
         }
-
       }
 
       describe("Parsing the middle name"){
@@ -589,7 +586,7 @@ class VersionEightParserSpec: QuickSpec {
 
             let formatter = NSDateFormatter()
             formatter.dateFormat = "MMddyyyy"
-            let expectedDate = formatter.dateFromString("01312035")
+            let expectedDate = formatter.dateFromString("04072021")
 
             expect(result.expirationDate).to(equal(expectedDate))
           }
@@ -621,7 +618,7 @@ class VersionEightParserSpec: QuickSpec {
 
             let formatter = NSDateFormatter()
             formatter.dateFormat = "MMddyyyy"
-            let expectedDate = formatter.dateFromString("08242015")
+            let expectedDate = formatter.dateFromString("04282016")
 
             expect(result.issueDate).to(equal(expectedDate))
           }
@@ -653,7 +650,7 @@ class VersionEightParserSpec: QuickSpec {
 
             let formatter = NSDateFormatter()
             formatter.dateFormat = "MMddyyyy"
-            let expectedDate = formatter.dateFromString("01151970")
+            let expectedDate = formatter.dateFromString("04071975")
 
             expect(result.dateOfBirth).to(equal(expectedDate))
           }
@@ -665,44 +662,46 @@ class VersionEightParserSpec: QuickSpec {
   func validLicenseData() -> String{
     let rawData = "@\n" +
       "\n" +
-      "ANSI 636026080102DL00410288ZA03290015DLDAQD12345678\n" +
-      "DCSPUBLIC\n" +
-      "DDEN\n" +
-      "DACJOHN\n" +
-      "DDFN\n" +
-      "DADQUINCY\n" +
-      "DDGN\n" +
-      "DCAD\n" +
-      "DCBNONE\n" +
+      "ANSI 636002040002DL00410250ZM02910036DLDCAD\n" +
+      "DCBB\n" +
       "DCDNONE\n" +
-      "DBD08242015\n" +
-      "DBB01151970\n" +
-      "DBA01312035\n" +
+      "DBA04072021\n" +
+      "DCSPUBLIC\n" +
+      "DACJOHN\n" +
+      "DADQUINCY\n" +
+      "DBD04282016\n" +
+      "DBB04071975\n" +
       "DBC1\n" +
-      "DAU069 in\n" +
-      "DAYGRN\n" +
+      "DAYUNK\n" +
+      "DAU076 IN\n" +
       "DAG789 E OAK ST\n" +
       "DAHAPT #4A\n" +
       "DAIANYTOWN\n" +
       "DAJCA\n" +
       "DAK902230000  \n" +
-      "DCF83D9BN217QO983B1\n" +
+      "DAQD12345678\n" +
+      "DCF04-29-2016 Rev 07-15-2009\n" +
       "DCGUSA\n" +
-      "DAW180\n" +
-      "DAZBRO\n" +
-      "DCK12345678900000000000\n" +
-      "DDB02142014\n" +
-      "DDK1\n" +
-      "ZAZAAN\n" +
-      "ZAB\n" +
-    "ZAC"
+      "DDEN\n" +
+      "DDFN\n" +
+      "DDGN\n" +
+      "DCK16119S526416220601\n" +
+      "DDB07152009\n" +
+      "\n" +
+      "ZMZMAY\n" +
+      "ZMB\n" +
+      "ZMC\n" +
+      "ZMD04292016\n" +
+      "ZME\n" +
+      "ZMF\n"
+
     return rawData
   }
 
   func emptyLicenseData() -> String{
     let rawData = "@\n" +
       "\n" +
-      "ANSI 636026080102DL00410288ZA03290015DLDAQD12345678\n" +
+      "ANSI 636026080102DL00410288ZA03290015DLDAQ\n" +
       "DCS\n" +
       "DDE\n" +
       "DAC\n" +
