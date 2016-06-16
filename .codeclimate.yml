@@ -7,9 +7,17 @@ engines:
         enabled: false
       colon-whitespace:
         enabled: false
+      parenthesis-whitespace:
+        enabled: false
+      brace-style:
+        enabled: false
+      trailing-whitespace:
+        enabled: false
+      function-whitespace:
+        enabled: false
   fixme:
     enabled: true
 ratings:
   paths:
     - "**.swift"
-exclude_paths: []
+exclude_paths: ["Example/Pods", "**Spec.swift"]
