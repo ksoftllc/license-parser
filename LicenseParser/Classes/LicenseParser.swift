@@ -62,6 +62,10 @@ public class Parser{
     switch v {
     case "01":
       return VersionOneFieldParser(data: self.data)
+    case "04":
+      return VersionFourFieldParser(data: self.data)
+    case "05":
+      return VersionFiveFieldParser(data: self.data)
     case "08":
       return VersionEightFieldParser(data: self.data)
     default:
