@@ -1,18 +1,11 @@
 # LicenseParser
-[![Build Status](https://travis-ci.org/sealz/license-parser.svg?branch=0.4.0)](https://travis-ci.org/sealz/license-parser)
-[![Code Climate](https://codeclimate.com/github/sealz/license-parser/badges/gpa.svg)](https://codeclimate.com/github/sealz/license-parser)
+[![Build Status](http://img.shields.io/travis/sealz/license-parser.svg?style=flat-square)](https://travis-ci.org/sealz/license-parser)
+[![Code Climate](http://img.shields.io/codeclimate/github/sealz/license-parser.svg?style=flat-square)](https://codeclimate.com/github/sealz/license-parser)
 [![Issue Count](https://codeclimate.com/github/sealz/license-parser/badges/issue_count.svg)](https://codeclimate.com/github/sealz/license-parser)
 
 Easily parse the information within PDF-417 barcodes found on the back of
 US and Canadian driver's licenses adhering to the AAMVA Version 8
 standard.
-
-# Installation
-```ruby
-  use_frameworks!
-
-  pod 'LicenseParser'
-```
 
 ## AAMVA Standard
 
