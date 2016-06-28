@@ -44,8 +44,8 @@ class FieldParser: FieldParsing{
   func parseString(key: String) -> String?{
     let identifier = fieldMapper.fieldFor(key)
     guard let regex        = "\(identifier)(.*)\n".r else { return nil }
-    guard let match        = regex.findFirst(data) else { return nil }
-    guard let matchedGroup = match.group(1) else { return nil }
+    guard let match        = regex.findFirst(in: data) else { return nil }
+    guard let matchedGroup = match.group(at: 1) else { return nil }
     guard !matchedGroup.isEmpty else { return nil }
 
     return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
@@ -54,8 +54,8 @@ class FieldParser: FieldParsing{
   func parseDouble(key: String) -> Double?{
     let identifier = fieldMapper.fieldFor(key)
     guard let regex        = "\(identifier)([0-9]+).*\n".r else { return nil }
-    guard let match        = regex.findFirst(data) else { return nil }
-    guard let matchedGroup = match.group(1) else { return nil }
+    guard let match        = regex.findFirst(in: data) else { return nil }
+    guard let matchedGroup = match.group(at: 1) else { return nil }
     guard !matchedGroup.isEmpty else { return nil }
 
     return Double(matchedGroup)

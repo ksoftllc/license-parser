@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CrossroadRegex
+import Regex
 
 public class Parser{
   var data: String
@@ -75,8 +75,8 @@ public class Parser{
 
   func parseVersion() -> String?{
     guard let regex        = "ANSI [0-9]{6}([0-9]{2}).*\n".r else { return nil }
-    guard let match        = regex.findFirst(data) else { return nil }
-    guard let matchedGroup = match.group(1) else { return nil }
+    guard let match        = regex.findFirst(in: data) else { return nil }
+    guard let matchedGroup = match.group(at: 1) else { return nil }
     guard !matchedGroup.isEmpty else { return nil }
 
     return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
