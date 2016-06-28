@@ -155,6 +155,18 @@ LicenseParser is available under the MIT license. See the LICENSE file for more 
 
 ## Change Log
 
+`0.5.3`
+
+* Update CrossroadRegex dependencies and new API for Swift 3
+
+`0.5.2`
+
+* Dependency updates
+
+`0.5.1`
+
+* Support for Additional AAMVA versions
+
 `0.5.0`
 
 * Added parsing of the AAMVA Version from the document
