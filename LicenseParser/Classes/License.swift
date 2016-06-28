@@ -37,6 +37,7 @@ public struct License: ParsedLicense{
   public var suffixAlias: String?
   public var suffix: LicenseParser.NameSuffix
   public var version: String?
+  public var pdf417: String?
   
   public func isExpired() -> Bool {
     guard let withDate = self.expirationDate else { return false }
@@ -81,6 +82,7 @@ public protocol ParsedLicense{
   var suffixAlias: String? { get set }
   var suffix: LicenseParser.NameSuffix { get set }
   var version: String? {get set}
+  var pdf417: String? {get set}
   
   func isExpired() -> Bool
   func hasBeenIssued() -> Bool
