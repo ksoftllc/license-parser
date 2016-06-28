@@ -17,25 +17,25 @@
 import Foundation
 
 public protocol NonStrictEquatable {
-    func isEqualTo(other:NonStrictEquatable) -> Bool
+    func isEqual(to other:NonStrictEquatable) -> Bool
 }
 
 public func ==<A : NonStrictEquatable, B : NonStrictEquatable>(lhs:A, rhs:B) -> Bool {
-    return lhs.isEqualTo(rhs)
+    return lhs.isEqual(to: rhs)
 }
 
 public func !=<A : NonStrictEquatable, B : NonStrictEquatable>(lhs:A, rhs:B) -> Bool {
-    return !lhs.isEqualTo(rhs)
+    return !lhs.isEqual(to: rhs)
 }
 
 @warn_unused_result
 public func ==<T : protocol<Equatable, NonStrictEquatable>>(lhs: T, rhs: T) -> Bool {
-    return lhs.isEqualTo(rhs)
+    return lhs.isEqual(to: rhs)
 }
 
 @warn_unused_result
 public func !=<T : protocol<Equatable, NonStrictEquatable>>(lhs: T, rhs: T) -> Bool {
-    return !lhs.isEqualTo(rhs)
+    return !lhs.isEqual(to: rhs)
 }
 
 //I would as well add protocol Equatable to collections, but unfortunately it's not possible in current Swift (2.1 at the moment of writing)
@@ -58,7 +58,7 @@ extension NonStrictEquatableCollection {
         let zip = lhs.zip(rhs)
         
         for (lhsv, rhsv) in zip {
-            if !lhsv.isEqualTo(rhsv) {
+            if !lhsv.isEqual(to: rhsv) {
                 return false
             }
         }
@@ -76,7 +76,7 @@ extension NonStrictEquatableCollection {
         let zip = lhs.zip(rhs)
         
         for (lhsv, rhsv) in zip {
-            if lhsv.isEqualTo(rhsv) {
+            if lhsv.isEqual(to: rhsv) {
                 return false
             }
         }
@@ -95,7 +95,7 @@ extension NonStrictEquatableCollection {
         let zip = lhs.zip(rhs)
     
         for (lhsv, rhsv) in zip {
-            if !lhsv.isEqualTo(rhsv) {
+            if !lhsv.isEqual(to: rhsv) {
                 return false
             }
         }
@@ -113,7 +113,7 @@ extension NonStrictEquatableCollection {
         let zip = lhs.zip(rhs)
     
         for (lhsv, rhsv) in zip {
-            if lhsv.isEqualTo(rhsv) {
+            if lhsv.isEqual(to: rhsv) {
                 return false
             }
         }

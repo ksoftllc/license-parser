@@ -17,11 +17,11 @@
 import Foundation
 import Result
 
-public func materializeAny<T>(@noescape f: () throws -> T) -> Result<T, AnyError> {
+public func materializeAny<T>(@noescape _ f: () throws -> T) -> Result<T, AnyError> {
     return materializeAny(try f())
 }
 
-public func materializeAny<T>(@autoclosure f: () throws -> T) -> Result<T, AnyError> {
+public func materializeAny<T>(@autoclosure _ f: () throws -> T) -> Result<T, AnyError> {
     do {
         return .Success(try f())
     } catch let e as AnyError {

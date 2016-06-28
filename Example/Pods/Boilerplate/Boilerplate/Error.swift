@@ -40,7 +40,11 @@ public extension RuntimeErrorType {
     var stack:[String] {
         get {
             #if !os(Linux)
-                return NSThread.callStackSymbols()
+                #if swift(>=3.0)
+                    return Foundation.Thread.callStackSymbols()
+                #else
+                    return NSThread.callStackSymbols()
+                #endif
             #else
                 return ["Runtime error stack trace is not currently supported on Linux"]
             #endif
@@ -53,7 +57,7 @@ public extension RuntimeErrorType {
         }
     }
     
-    func formatDescription(custom:Any) -> String {
+    func formatDescription(_ custom:Any) -> String {
         return "\(custom)\n\(stackTrace)"
     }
     
@@ -103,7 +107,7 @@ public struct AnyError : AnyErrorProtocol {
 public protocol ErrorWithCodeType : ErrorProtocol {
     init(code:Int32)
     
-    static func isError(code:Int32) -> Bool
+    static func isError(_ code:Int32) -> Bool
 }
 
 public enum CError : RuntimeErrorType {
@@ -116,7 +120,7 @@ extension CError : ErrorWithCodeType {
         self = .Code(code: code)
     }
     
-    public static func isError(code:Int32) -> Bool {
+    public static func isError(_ code:Int32) -> Bool {
         return code != 0
     }
 }
@@ -127,18 +131,18 @@ public extension CError {
     public static let INVAL = EINVAL
 }
 
-public func ccall<Error: ErrorWithCodeType>(@noescape fun:()->Int32) -> Error? {
+public func ccall<Error: ErrorWithCodeType>(@noescape _ fun:()->Int32) -> Error? {
     let result = fun()
     return Error.isError(result) ? Error(code: result) : nil
 }
 
-public func ccall<Error: ErrorWithCodeType>(_: Error.Type, @noescape fun:()->Int32) throws {
+public func ccall<Error: ErrorWithCodeType>(_: Error.Type = Error.self, @noescape fun:()->Int32) throws {
     if let error:Error = ccall(fun) {
         throw error
     }
 }
 
-public func ccall<Value, Error: ErrorWithCodeType>(@noescape fun:(inout code:Int32)->Value) -> Result<Value, Error> {
+public func ccall<Value, Error: ErrorWithCodeType>(@noescape _ fun:(inout code:Int32)->Value) -> Result<Value, Error> {
     var code:Int32 = 0
     let result = fun(code: &code)
     if Error.isError(code) {
@@ -148,7 +152,7 @@ public func ccall<Value, Error: ErrorWithCodeType>(@noescape fun:(inout code:Int
     }
 }
 
-public func ccall<Value, Error: ErrorWithCodeType>(_: Error.Type, @noescape fun:(inout code:Int32)->Value) throws -> Value {
+public func ccall<Value, Error: ErrorWithCodeType>(_: Error.Type = Error.self, @noescape fun:(inout code:Int32)->Value) throws -> Value {
     let result:Result<Value, Error> = ccall(fun)
     return try result.dematerialize()
 }

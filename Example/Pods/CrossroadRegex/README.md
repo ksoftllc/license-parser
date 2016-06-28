@@ -142,6 +142,13 @@ let splits = myString.split("(\\d)".r)
 
 ## Changelog
 
+* v0.7
+	* Support of Swift 3.0 preview 1
+	* Regex options support (like case sensetivity)
+	* Breaking change (Swift 3.0ish syntax)
+	* Renamed module in Pod from `CrossroadRegex` to `Regex`
+* v0.6
+	* Swift 3.0 support
 * v0.5.1
 	* Minor linux build related fixes
 * v0.5
