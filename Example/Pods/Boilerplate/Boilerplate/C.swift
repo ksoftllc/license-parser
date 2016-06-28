@@ -16,6 +16,30 @@
 
 import Foundation
 
+extension UnsafeMutablePointer : NullEquatable {
+}
+
+extension UnsafePointer : NullEquatable {
+}
+
+#if swift(>=3.0)
+    public func==<T>(lhs:UnsafeMutablePointer<T>, rhs:Null) -> Bool {
+        return Int(bitPattern: lhs) == 0
+    }
+    
+    public func==<T>(lhs:UnsafePointer<T>, rhs:Null) -> Bool {
+        return Int(bitPattern: lhs) == 0
+    }
+#else
+    public func==<T>(lhs:UnsafeMutablePointer<T>, rhs:Null) -> Bool {
+        return lhs == UnsafeMutablePointer(nil)
+    }
+    
+    public func==<T>(lhs:UnsafePointer<T>, rhs:Null) -> Bool {
+        return lhs == UnsafePointer(nil)
+    }
+#endif
+
 #if swift(>=3.0)
 #else
     public typealias OpaquePointer = COpaquePointer
@@ -23,6 +47,20 @@ import Foundation
     public extension OpaquePointer {
         public init<T>(bitPattern:Unmanaged<T>) {
             self = bitPattern.toOpaque()
+        }
+    }
+    
+    public extension UnsafePointer {
+        public typealias Pointee = Memory
+        
+        /// Access the `Pointee` instance referenced by `self`.
+        ///
+        /// - Precondition: the pointee has been initialized with an instance of
+        ///   type `Pointee`.
+        public var pointee: Pointee {
+            get {
+                return self.memory
+            }
         }
     }
     

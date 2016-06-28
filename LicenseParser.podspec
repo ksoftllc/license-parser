@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LicenseParser"
-  s.version          = "0.5.1"
+  s.version          = "0.5.2"
   s.summary          = "Driver's License Parser for US Licenses implementing the AAMVA PDF-417 standard."
 
 # This description is used to generate tags and improve search results.
@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.source_files = 'LicenseParser/Classes/**/*'
-  s.dependency 'CrossroadRegex'
+  s.dependency 'CrossroadRegex', '~> 0'
 end

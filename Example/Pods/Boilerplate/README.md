@@ -3,7 +3,7 @@
 # Boilerplate
 
 ![🐧 linux: ready](https://img.shields.io/badge/%F0%9F%90%A7%20linux-ready-red.svg)
-![🐤 3.0: ready](https://img.shields.io/badge/🐤3.0-ready-red.svg)
+![🐤 3.0: ready](https://img.shields.io/badge/🐤 3.0-ready-red.svg)
 [![Build Status](https://travis-ci.org/crossroadlabs/Boilerplate.svg?branch=master)](https://travis-ci.org/crossroadlabs/Boilerplate)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Platform OS X | iOS | tvOS | watchOS | Linux](https://img.shields.io/badge/platform-OS X | iOS | tvOS | watchOS | Linux-orange.svg)
@@ -91,6 +91,27 @@ Examples above are just a quick intro to what Boilerplate can bring you. Take a 
 Contributions are welcome. Let's get rid of boilerplate code in Swift together.
 
 ### Keep your code clean ;)
+
+## Changelog
+
+* v0.2.1
+	* Range shims for Swift 3.0
+* v0.2.0
+	* Swift 3.0 preview 1 support
+	* Null pointers workarounds (Swift 3.0/2.x related)
+* v0.1.x:
+	* Obj-C Bridging utils
+	* Fatal errors
+	* C error handling
+	* AnyError
+	* ZippedSequence
+	* NonStrictEquatable
+	* Timeout (and conversion to different formats)
+	* tiny ThreadLocal and Thread
+	* Tasks
+	* Invalidation tokens
+	* Swift 3.0 shimming
+	* Linux/Mac incompatibilities fixes
 
 ## Contributing
 

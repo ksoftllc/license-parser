@@ -16,7 +16,7 @@
 
 import Foundation
 
-#if swift(>=3.0) && !os(Linux)
+#if swift(>=3.0)
 #else
     public extension String {
         public func substring(from index: Index) -> String {
@@ -75,7 +75,7 @@ import Foundation
         ///
         /// - Precondition: `cString != nil`
         public init?(validatingUTF8 cString: UnsafePointer<CChar>) {
-            if cString == nil {
+            if cString == .null {
                 CommonRuntimeError.PreconditionFailed(description: "cString is nil").panic()
             } else {
                 guard let string = String.fromCString(cString) else {
@@ -153,6 +153,35 @@ import Foundation
         /// calling `output` on each `CodeUnit`.
         public static func encode(input: UnicodeScalar, sendingOutputTo processCodeUnit: (CodeUnit) -> Swift.Void) {
             self.encode(input, output: processCodeUnit)
+        }
+    }
+    
+    public extension String {
+        /// A type used to represent the number of steps between two `String.Index`
+        /// values, where one value is reachable from the other.
+        ///
+        /// In Swift, *reachability* refers to the ability to produce one value from
+        /// the other through zero or more applications of `index(after:)`.
+        public typealias IndexDistance = Int
+        
+        public func index(after i: Index) -> Index {
+            return i.successor()
+        }
+        
+        public func index(before i: Index) -> Index {
+            return i.predecessor()
+        }
+        
+        public func index(i: Index, offsetBy n: IndexDistance) -> Index {
+            return i.advanced(by: n)
+        }
+        
+        public func index(i: Index, offsetBy n: IndexDistance, limitedBy limit: Index) -> Index? {
+            return i.advancedBy(n, limit: limit)
+        }
+        
+        public func distance(from start: Index, to end: Index) -> IndexDistance {
+            return start.distance(to: end)
         }
     }
     

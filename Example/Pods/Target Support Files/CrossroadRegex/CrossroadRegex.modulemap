@@ -1,4 +1,4 @@
-framework module CrossroadRegex {
+framework module Regex {
   umbrella header "CrossroadRegex-umbrella.h"
 
   export *

@@ -17,19 +17,19 @@
 import Foundation
 
 public extension Optional {
-    func getOrElse(@autoclosure el:() throws -> Wrapped) rethrows -> Wrapped {
+    func getOr(@autoclosure else el:() throws -> Wrapped) rethrows -> Wrapped {
         return try self ?? el()
     }
     
-    func getOrElse(el:() throws -> Wrapped) rethrows -> Wrapped {
+    func getOr(else el:() throws -> Wrapped) rethrows -> Wrapped {
         return try self ?? el()
     }
     
-    func orElse(@autoclosure el:() throws -> Wrapped?) rethrows -> Wrapped? {
+    func or(@autoclosure else el:() throws -> Wrapped?) rethrows -> Wrapped? {
         return try self ?? el()
     }
     
-    func orElse(el:() throws -> Wrapped?) rethrows -> Wrapped? {
+    func or(else el:() throws -> Wrapped?) rethrows -> Wrapped? {
         return try self ?? el()
     }
 }
