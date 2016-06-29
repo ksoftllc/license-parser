@@ -7,6 +7,28 @@ Easily parse the information within PDF-417 barcodes found on the back of
 US and Canadian driver's licenses adhering to the AAMVA Version 8
 standard.
 
+## Usage
+
+```swift
+
+// First get the PDF-417 barcode data by scanning the barcode on the license
+let pdf417Data: String = MyFakeLicenseScanner.scan()
+
+// Create a parser with that data
+let parser: Parser = Parser(data: pdf417Data)
+
+// Ask the parser to parse it
+let parsedLicense: ParsedLicense = parser.parse()
+
+print(parsedLicense.firstName)
+// => Optional("John")
+print(parsedLicense.middleName)
+// => Optional("Quincy")
+print(parsedLicense.lastName)
+// => Optional("Public")
+```
+
+
 ## AAMVA Standard
 
 ### Supported Fields
@@ -127,27 +149,6 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "LicenseParser"
-```
-
-## Usage
-
-```swift
-
-// First get the PDF-417 barcode data by scanning the barcode on the license
-let pdf417Data: String = MyFakeLicenseScanner.scan()
-
-// Create a parser with that data
-let parser: Parser = Parser(data: pdf417Data)
-
-// Ask the parser to parse it
-let parsedLicense: ParsedLicense = parser.parse()
-
-print(parsedLicense.firstName)
-// => Optional("John")
-print(parsedLicense.middleName)
-// => Optional("Quincy")
-print(parsedLicense.lastName)
-// => Optional("Public")
 ```
 
 ## License
