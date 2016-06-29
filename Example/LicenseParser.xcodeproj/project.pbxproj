@@ -10,6 +10,7 @@
 		0149884E1D24319400DD57AE /* LicenseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0149884C1D24319400DD57AE /* LicenseSpec.swift */; };
 		0167AFB91D0A37C100B8DC5B /* VersionEightParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167AFB81D0A37C100B8DC5B /* VersionEightParserSpec.swift */; };
 		0167AFBB1D0A384B00B8DC5B /* VersionOneParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */; };
+		01AEE6011D24771B000876DF /* DriverLicenseNameSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AEE6001D24771B000876DF /* DriverLicenseNameSpec.swift */; };
 		01BCAFC71D12234B006E0C7C /* VersionFourParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCAFC61D12234B006E0C7C /* VersionFourParserSpec.swift */; };
 		01BCAFCB1D122723006E0C7C /* FieldParsingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCAFCA1D122723006E0C7C /* FieldParsingSpec.swift */; };
 		01E018771D1243E30038E929 /* VersionFiveParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E018761D1243E30038E929 /* VersionFiveParserSpec.swift */; };
@@ -21,6 +22,7 @@
 		0149884C1D24319400DD57AE /* LicenseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseSpec.swift; sourceTree = "<group>"; };
 		0167AFB81D0A37C100B8DC5B /* VersionEightParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionEightParserSpec.swift; sourceTree = "<group>"; };
 		0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionOneParserSpec.swift; sourceTree = "<group>"; };
+		01AEE6001D24771B000876DF /* DriverLicenseNameSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenseNameSpec.swift; sourceTree = "<group>"; };
 		01BCAFC61D12234B006E0C7C /* VersionFourParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionFourParserSpec.swift; sourceTree = "<group>"; };
 		01BCAFCA1D122723006E0C7C /* FieldParsingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldParsingSpec.swift; sourceTree = "<group>"; };
 		01E018761D1243E30038E929 /* VersionFiveParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionFiveParserSpec.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */,
 				01BCAFCA1D122723006E0C7C /* FieldParsingSpec.swift */,
 				01E018761D1243E30038E929 /* VersionFiveParserSpec.swift */,
+				01AEE6001D24771B000876DF /* DriverLicenseNameSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E018771D1243E30038E929 /* VersionFiveParserSpec.swift in Sources */,
+				01AEE6011D24771B000876DF /* DriverLicenseNameSpec.swift in Sources */,
 				01BCAFC71D12234B006E0C7C /* VersionFourParserSpec.swift in Sources */,
 				01BCAFCB1D122723006E0C7C /* FieldParsingSpec.swift in Sources */,
 				0167AFB91D0A37C100B8DC5B /* VersionEightParserSpec.swift in Sources */,

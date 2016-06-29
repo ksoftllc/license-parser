@@ -22,9 +22,9 @@ public class Parser{
     self.fieldParser = versionBasedFieldParsing(parseVersion())
 
     return License(
-      firstName               : fieldParser.parseString("firstName"),
-      lastName                : fieldParser.parseString("lastName"),
-      middleName              : fieldParser.parseString("middleName"),
+      firstName               : fieldParser.parseFirstName(),
+      lastName                : fieldParser.parseLastName(),
+      middleName              : fieldParser.parseMiddleName(),
       expirationDate          : fieldParser.parseExpirationDate(),
       issueDate               : fieldParser.parseIssueDate(),
       dateOfBirth             : fieldParser.parseDateOfBirth(),
@@ -75,9 +75,9 @@ public class Parser{
   }
 
   func parseVersion() -> String?{
-    guard let regex        = "ANSI [0-9]{6}([0-9]{2}).*\n".r else { return nil }
+    guard let regex        = "(ANSI|AAMVA) ?[0-9]{6}([0-9]{2}).*\n".r else { return nil }
     guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 1) else { return nil }
+    guard let matchedGroup = match.group(at: 2) else { return nil }
     guard !matchedGroup.isEmpty else { return nil }
 
     return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())

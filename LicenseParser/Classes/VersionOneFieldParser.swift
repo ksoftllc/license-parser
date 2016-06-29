@@ -14,6 +14,7 @@ public class VersionOneFieldMapper: FieldMapper{
 
     self.fields["customerId"] = "DBJ"
     self.fields["lastName"]   = "DAB"
+    self.fields["driverLicenseName"] = "DAA"
   }
 }
 
@@ -24,6 +25,21 @@ class VersionOneFieldParser: FieldParser{
 
   override func getDateFormat() -> String {
     return "yyyyMMdd"
+  }
+
+  override func parseFirstName() -> String? {
+    guard let firstDriverLicenseName = parseString("firstName") else { return parseDriverLicenseName("firstName") }
+    return firstDriverLicenseName
+  }
+
+  override func parseLastName() -> String? {
+    guard let lastDriverLicenseName = parseString("lastName") else { return parseDriverLicenseName("lastName") }
+    return lastDriverLicenseName
+  }
+
+  override func parseMiddleName() -> String? {
+    guard let middleDriverLicenseName = parseString("middleName") else { return parseDriverLicenseName("middleName") }
+    return middleDriverLicenseName
   }
 
   // Parse something like 508 (5'8") into 68"
@@ -38,5 +54,68 @@ class VersionOneFieldParser: FieldParser{
     guard !inches.isEmpty else { return nil }
 
     return (Double(height)! * 12) + Double(inches)!
+  }
+
+  override func parseNameSuffix() -> NameSuffix {
+    var suffix: String? = ""
+    if parseString("suffix") != nil{
+      suffix = parseString("suffix")
+    }
+
+    if parseDriverLicenseName("suffix") != nil{
+      suffix = parseDriverLicenseName("suffix")
+    }
+
+    guard let nameSuffix = suffix else { return .Unknown }
+
+    switch nameSuffix{
+    case "JR":
+      return .Junior
+    case "SR":
+      return .Senior
+    case "1ST", "I":
+      return .First
+    case "2ND", "II":
+      return .Second
+    case "3RD", "III":
+      return .Third
+    case "4TH", "IV":
+      return .Fourth
+    case "5TH", "V":
+      return .Fifth
+    case "6TH", "VI":
+      return .Sixth
+    case "7TH", "VII":
+      return .Seventh
+    case "8TH", "VIII":
+      return .Eighth
+    case "9TH", "IX":
+      return .Ninth
+    default:
+      return .Unknown
+    }
+  }
+
+  private func parseDriverLicenseName(key: String) -> String?{
+    guard let driverLicenseName = parseString("driverLicenseName") else { return nil }
+
+    let namePieces = driverLicenseName.characters.split{ $0 == "," }.map(String.init)
+
+    switch key {
+    case "lastName":
+      guard namePieces.indices.contains(0) else { return nil }
+      return namePieces[0]
+    case "firstName":
+      guard namePieces.indices.contains(1) else { return nil }
+      return namePieces[1]
+    case "middleName":
+      guard namePieces.indices.contains(2) else { return nil }
+      return namePieces[2]
+    case "suffix":
+      guard namePieces.indices.contains(3) else { return nil }
+      return namePieces[3]
+    default:
+      return nil
+    }
   }
 }

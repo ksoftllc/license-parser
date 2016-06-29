@@ -15,6 +15,7 @@ class VersionOneParserSpec: QuickSpec {
   override func spec() {
 
     describe("Parsing Data Adhereing to the 2000 AAMVA DL/ID Card Design Standard (aka version 1)"){
+
       describe("Parsing the AAMVA Document Standard"){
         context("when the version is present"){
           it("should reveal the correct version number"){
@@ -641,7 +642,6 @@ class VersionOneParserSpec: QuickSpec {
     let rawData = "@\n" +
       "\n" +
       "ANSI 636026010102DL00410288ZA03290015DLDBJD12345678\n" +
-      "DAAPUBLIC,JOHN,Q\n" +
       "DABPUBLIC\n" +
       "DACJOHN\n" +
       "DADQUINCY\n" +

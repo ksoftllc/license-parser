@@ -26,6 +26,9 @@ public protocol FieldParsing{
   func parseHeight() -> Double?
   func parseHairColor() -> HairColor
   func getDateFormat() -> String
+  func parseFirstName() -> String?
+  func parseLastName() -> String?
+  func parseMiddleName() -> String?
 }
 
 class FieldParser: FieldParsing{
@@ -74,6 +77,18 @@ class FieldParser: FieldParsing{
 
   func getDateFormat() -> String {
     return "MMddyyyy"
+  }
+
+  func parseFirstName() -> String?{
+    return parseString("firstName")
+  }
+
+  func parseLastName() -> String?{
+    return parseString("lastName")
+  }
+
+  func parseMiddleName() -> String?{
+    return parseString("middleName")
   }
 
 
