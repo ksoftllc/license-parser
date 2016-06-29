@@ -155,6 +155,10 @@ LicenseParser is available under the MIT license. See the LICENSE file for more 
 
 ## Change Log
 
+`0.5.4`
+
+* Expose the raw PDF-417 values from the parsed license
+
 `0.5.3`
 
 * Update CrossroadRegex dependencies and new API for Swift 3

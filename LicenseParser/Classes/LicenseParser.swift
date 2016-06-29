@@ -50,7 +50,8 @@ public class Parser{
       firstNameAlias          : fieldParser.parseString("firstNameAlias"),
       suffixAlias             : fieldParser.parseString("suffixAlias"),
       suffix                  : fieldParser.parseNameSuffix(),
-      version                 : parseVersion()
+      version                 : parseVersion(),
+      pdf417                  : data
     )
   }
 
