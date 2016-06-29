@@ -11,8 +11,8 @@ PODS:
 
 DEPENDENCIES:
   - LicenseParser (from `../`)
-  - Nimble
-  - Quick
+  - Nimble (~> 4.1)
+  - Quick (~> 0.9)
 
 EXTERNAL SOURCES:
   LicenseParser:
@@ -26,6 +26,6 @@ SPEC CHECKSUMS:
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
   Result: 822c879f145943320cc80a9a8372378e3d699fe4
 
-PODFILE CHECKSUM: 601dc7b035b0103d1639d7cc3f62c9edcef167a4
+PODFILE CHECKSUM: 773f0a7c774d1ba75ebbbd0b11758b68304f251f
 
 COCOAPODS: 1.0.1
