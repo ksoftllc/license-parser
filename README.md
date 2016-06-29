@@ -156,22 +156,27 @@ LicenseParser is available under the MIT license. See the LICENSE file for more 
 
 ## Change Log
 
-`0.5.4`
+#### 0.5.5
+
+* Support Version One Licenses using the `DAA` "Driver License Name" designator
+to store the first, middle and last name along with the name suffix.
+
+#### 0.5.4
 
 * Expose the raw PDF-417 values from the parsed license
 
-`0.5.3`
+#### 0.5.3
 
 * Update CrossroadRegex dependencies and new API for Swift 3
 
-`0.5.2`
+#### 0.5.2
 
 * Dependency updates
 
-`0.5.1`
+#### 0.5.1
 
 * Support for Additional AAMVA versions
 
-`0.5.0`
+#### 0.5.0
 
 * Added parsing of the AAMVA Version from the document
