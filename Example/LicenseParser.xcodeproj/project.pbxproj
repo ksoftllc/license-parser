@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0149884E1D24319400DD57AE /* LicenseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0149884C1D24319400DD57AE /* LicenseSpec.swift */; };
 		0167AFB91D0A37C100B8DC5B /* VersionEightParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167AFB81D0A37C100B8DC5B /* VersionEightParserSpec.swift */; };
 		0167AFBB1D0A384B00B8DC5B /* VersionOneParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */; };
 		01BCAFC71D12234B006E0C7C /* VersionFourParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BCAFC61D12234B006E0C7C /* VersionFourParserSpec.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0149884C1D24319400DD57AE /* LicenseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseSpec.swift; sourceTree = "<group>"; };
 		0167AFB81D0A37C100B8DC5B /* VersionEightParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionEightParserSpec.swift; sourceTree = "<group>"; };
 		0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionOneParserSpec.swift; sourceTree = "<group>"; };
 		01BCAFC61D12234B006E0C7C /* VersionFourParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionFourParserSpec.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0149884C1D24319400DD57AE /* LicenseSpec.swift */,
 				01BCAFC61D12234B006E0C7C /* VersionFourParserSpec.swift */,
 				607FACEB1AFB9204008FA782 /* LicenseParserSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -237,6 +240,7 @@
 				01BCAFC71D12234B006E0C7C /* VersionFourParserSpec.swift in Sources */,
 				01BCAFCB1D122723006E0C7C /* FieldParsingSpec.swift in Sources */,
 				0167AFB91D0A37C100B8DC5B /* VersionEightParserSpec.swift in Sources */,
+				0149884E1D24319400DD57AE /* LicenseSpec.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* LicenseParserSpec.swift in Sources */,
 				0167AFBB1D0A384B00B8DC5B /* VersionOneParserSpec.swift in Sources */,
 			);
