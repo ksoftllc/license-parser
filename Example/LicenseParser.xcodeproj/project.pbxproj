@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0149884E1D24319400DD57AE /* LicenseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0149884C1D24319400DD57AE /* LicenseSpec.swift */; };
+		0157C3AB1D30080900AACBB3 /* VersionParsingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157C3AA1D30080900AACBB3 /* VersionParsingSpec.swift */; };
 		0167AFB91D0A37C100B8DC5B /* VersionEightParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167AFB81D0A37C100B8DC5B /* VersionEightParserSpec.swift */; };
 		0167AFBB1D0A384B00B8DC5B /* VersionOneParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */; };
 		01AEE6011D24771B000876DF /* DriverLicenseNameSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AEE6001D24771B000876DF /* DriverLicenseNameSpec.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		0149884C1D24319400DD57AE /* LicenseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseSpec.swift; sourceTree = "<group>"; };
+		0157C3AA1D30080900AACBB3 /* VersionParsingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionParsingSpec.swift; sourceTree = "<group>"; };
 		0167AFB81D0A37C100B8DC5B /* VersionEightParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionEightParserSpec.swift; sourceTree = "<group>"; };
 		0167AFBA1D0A384B00B8DC5B /* VersionOneParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionOneParserSpec.swift; sourceTree = "<group>"; };
 		01AEE6001D24771B000876DF /* DriverLicenseNameSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenseNameSpec.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				01BCAFCA1D122723006E0C7C /* FieldParsingSpec.swift */,
 				01E018761D1243E30038E929 /* VersionFiveParserSpec.swift */,
 				01AEE6001D24771B000876DF /* DriverLicenseNameSpec.swift */,
+				0157C3AA1D30080900AACBB3 /* VersionParsingSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				0167AFB91D0A37C100B8DC5B /* VersionEightParserSpec.swift in Sources */,
 				0149884E1D24319400DD57AE /* LicenseSpec.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* LicenseParserSpec.swift in Sources */,
+				0157C3AB1D30080900AACBB3 /* VersionParsingSpec.swift in Sources */,
 				0167AFBB1D0A384B00B8DC5B /* VersionOneParserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
