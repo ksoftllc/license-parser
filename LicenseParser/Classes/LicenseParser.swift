@@ -75,9 +75,9 @@ public class Parser{
   }
 
   func parseVersion() -> String?{
-    guard let regex        = "(ANSI|AAMVA) ?[0-9]{6}([0-9]{2}).*\n".r else { return nil }
+    guard let regex        = "\\d{6}(\\d{2}).*\\W".r else { return nil }
     guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 2) else { return nil }
+    guard let matchedGroup = match.group(at: 1) else { return nil }
     guard !matchedGroup.isEmpty else { return nil }
 
     return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
