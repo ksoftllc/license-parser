@@ -32,6 +32,7 @@ public protocol FieldParsing{
 }
 
 class FieldParser: FieldParsing{
+  let regex: Regex = Regex()
   var fieldMapper: FieldMapping
   var data: String
 
@@ -46,22 +47,15 @@ class FieldParser: FieldParsing{
 
   func parseString(key: String) -> String?{
     let identifier = fieldMapper.fieldFor(key)
-    guard let regex        = "\(identifier)(.*)\n".r else { return nil }
-    guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 1) else { return nil }
-    guard !matchedGroup.isEmpty else { return nil }
-
-    return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    return regex.firstMatch("\(identifier)(.+)\\b", data: data)
   }
 
   func parseDouble(key: String) -> Double?{
     let identifier = fieldMapper.fieldFor(key)
-    guard let regex        = "\(identifier)([0-9]+).*\n".r else { return nil }
-    guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 1) else { return nil }
-    guard !matchedGroup.isEmpty else { return nil }
+    let result = regex.firstMatch("\(identifier)(\\w+)\\b", data: data)
+    guard let unwrappedResult = result else { return nil }
 
-    return Double(matchedGroup)
+    return Double(unwrappedResult)
   }
 
   func parseDate(field: String) -> NSDate?{

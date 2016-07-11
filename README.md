@@ -157,6 +157,11 @@ LicenseParser is available under the MIT license. See the LICENSE file for more 
 
 ## Change Log
 
+#### 0.5.7
+
+* Remove Crossroads Regex dependency
+* Fix issue with incorrect parsing based on line endings
+
 #### 0.5.6
 
 * Improved AAMVA version discovery before parsing
