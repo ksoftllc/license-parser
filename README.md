@@ -157,6 +157,10 @@ LicenseParser is available under the MIT license. See the LICENSE file for more 
 
 ## Change Log
 
+#### 0.5.6
+
+* Improved AAMVA version discovery before parsing
+
 #### 0.5.5
 
 * Support Version One Licenses using the `DAA` "Driver License Name" designator
