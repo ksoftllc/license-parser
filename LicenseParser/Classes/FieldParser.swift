@@ -32,6 +32,7 @@ public protocol FieldParsing{
 }
 
 class FieldParser: FieldParsing{
+  let regex: Regex = Regex()
   var fieldMapper: FieldMapping
   var data: String
 
@@ -46,32 +47,15 @@ class FieldParser: FieldParsing{
 
   func parseString(key: String) -> String?{
     let identifier = fieldMapper.fieldFor(key)
-    do{
-      let regex: NSRegularExpression = try NSRegularExpression(pattern: "\(identifier)(.+)\\b", options: .CaseInsensitive)
-      let matches = regex.matchesInString(data, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
-      guard let firstMatch = matches.first else { return nil }
-
-      let matchedGroup = (data as NSString).substringWithRange(firstMatch.rangeAtIndex(1))
-      guard !matchedGroup.isEmpty else { return nil }
-      return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-    }catch{
-      return nil
-    }
+    return regex.firstMatch("\(identifier)(.+)\\b", data: data)
   }
 
   func parseDouble(key: String) -> Double?{
     let identifier = fieldMapper.fieldFor(key)
-    do{
-      let regex: NSRegularExpression = try NSRegularExpression(pattern: "\(identifier)(\\w+)\\b", options: .CaseInsensitive)
-      let matches = regex.matchesInString(data, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
-      guard let firstMatch = matches.first else { return nil }
+    let result = regex.firstMatch("\(identifier)(\\w+)\\b", data: data)
+    guard let unwrappedResult = result else { return nil }
 
-      let matchedGroup = (data as NSString).substringWithRange(firstMatch.rangeAtIndex(1))
-      guard !matchedGroup.isEmpty else { return nil }
-      return Double(matchedGroup)
-    }catch{
-      return nil
-    }
+    return Double(unwrappedResult)
   }
 
   func parseDate(field: String) -> NSDate?{

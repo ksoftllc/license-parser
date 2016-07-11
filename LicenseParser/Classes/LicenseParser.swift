@@ -9,6 +9,7 @@
 import Foundation
 
 public class Parser{
+  let regex: Regex = Regex()
   var data: String
   var fieldParser: FieldParsing
   
@@ -74,17 +75,7 @@ public class Parser{
   }
 
   func parseVersion() -> String?{
-    do{
-      let regex: NSRegularExpression = try NSRegularExpression(pattern: "\\d{6}(\\d{2})\\w+", options: .CaseInsensitive)
-      let matches = regex.matchesInString(data, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
-      guard let firstMatch = matches.first else { return nil }
-
-      let matchedGroup = (data as NSString).substringWithRange(firstMatch.rangeAtIndex(1))
-      guard !matchedGroup.isEmpty else { return nil }
-      return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-    }catch{
-      return nil
-    }
+    return regex.firstMatch("\\d{6}(\\d{2})\\w+", data: data)
   }
 
 }
