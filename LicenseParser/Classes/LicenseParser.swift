@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Regex
 
 public class Parser{
   var data: String
@@ -75,12 +74,17 @@ public class Parser{
   }
 
   func parseVersion() -> String?{
-    guard let regex        = "\\d{6}(\\d{2}).*\\W".r else { return nil }
-    guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 1) else { return nil }
-    guard !matchedGroup.isEmpty else { return nil }
+    do{
+      let regex: NSRegularExpression = try NSRegularExpression(pattern: "\\d{6}(\\d{2})\\w+", options: .CaseInsensitive)
+      let matches = regex.matchesInString(data, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
+      guard let firstMatch = matches.first else { return nil }
 
-    return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+      let matchedGroup = (data as NSString).substringWithRange(firstMatch.rangeAtIndex(1))
+      guard !matchedGroup.isEmpty else { return nil }
+      return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }catch{
+      return nil
+    }
   }
 
 }

@@ -1,6 +1,0 @@
-framework module Boilerplate {
-  umbrella header "Boilerplate-umbrella.h"
-
-  export *
-  module * { export * }
-}

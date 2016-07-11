@@ -46,22 +46,32 @@ class FieldParser: FieldParsing{
 
   func parseString(key: String) -> String?{
     let identifier = fieldMapper.fieldFor(key)
-    guard let regex        = "\(identifier)(.*)\n".r else { return nil }
-    guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 1) else { return nil }
-    guard !matchedGroup.isEmpty else { return nil }
+    do{
+      let regex: NSRegularExpression = try NSRegularExpression(pattern: "\(identifier)(.+)\\b", options: .CaseInsensitive)
+      let matches = regex.matchesInString(data, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
+      guard let firstMatch = matches.first else { return nil }
 
-    return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+      let matchedGroup = (data as NSString).substringWithRange(firstMatch.rangeAtIndex(1))
+      guard !matchedGroup.isEmpty else { return nil }
+      return matchedGroup.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }catch{
+      return nil
+    }
   }
 
   func parseDouble(key: String) -> Double?{
     let identifier = fieldMapper.fieldFor(key)
-    guard let regex        = "\(identifier)([0-9]+).*\n".r else { return nil }
-    guard let match        = regex.findFirst(in: data) else { return nil }
-    guard let matchedGroup = match.group(at: 1) else { return nil }
-    guard !matchedGroup.isEmpty else { return nil }
+    do{
+      let regex: NSRegularExpression = try NSRegularExpression(pattern: "\(identifier)(\\w+)\\b", options: .CaseInsensitive)
+      let matches = regex.matchesInString(data, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
+      guard let firstMatch = matches.first else { return nil }
 
-    return Double(matchedGroup)
+      let matchedGroup = (data as NSString).substringWithRange(firstMatch.rangeAtIndex(1))
+      guard !matchedGroup.isEmpty else { return nil }
+      return Double(matchedGroup)
+    }catch{
+      return nil
+    }
   }
 
   func parseDate(field: String) -> NSDate?{

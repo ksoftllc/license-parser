@@ -30,5 +30,4 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.source_files = 'LicenseParser/Classes/**/*'
-  s.dependency 'CrossroadRegex', '~> 0'
 end

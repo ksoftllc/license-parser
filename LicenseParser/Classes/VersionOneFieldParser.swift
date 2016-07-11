@@ -46,14 +46,21 @@ class VersionOneFieldParser: FieldParser{
   override func parseHeight() -> Double? {
     guard let heightInFeetAndInches = parseString("height") else { return nil }
 
-    guard let regex        = "([0-9]{1})([0-9]{2})".r else { return nil }
-    guard let match        = regex.findFirst(in: heightInFeetAndInches) else { return nil }
-    guard let height       = match.group(at: 1) else { return nil }
-    guard let inches       = match.group(at: 2) else { return nil }
-    guard !height.isEmpty else { return nil }
-    guard !inches.isEmpty else { return nil }
+    do{
+      let regex: NSRegularExpression = try NSRegularExpression(pattern: "([0-9]{1})([0-9]{2})", options: .CaseInsensitive)
+      let matches = regex.matchesInString(heightInFeetAndInches, options: NSMatchingOptions(), range: NSRange(location: 0, length: data.characters.count)) as [NSTextCheckingResult]
+      guard let match = matches.first else { return nil }
 
-    return (Double(height)! * 12) + Double(inches)!
+      let height       = (heightInFeetAndInches as NSString).substringWithRange(match.rangeAtIndex(1))
+      let inches       = (heightInFeetAndInches as NSString).substringWithRange(match.rangeAtIndex(2))
+      guard !height.isEmpty else { return nil }
+      guard !inches.isEmpty else { return nil }
+  
+      return (Double(height)! * 12) + Double(inches)!
+
+    }catch{
+      return nil
+    }
   }
 
   override func parseNameSuffix() -> NameSuffix {
