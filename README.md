@@ -157,6 +157,11 @@ LicenseParser is available under the MIT license. See the LICENSE file for more 
 
 ## Change Log
 
+#### 0.5.8
+    
+* Support for parsing heights in centimeters (still expressed in inches)
+* Support for version three AAMVA licenses
+
 #### 0.5.7
 
 * Remove Crossroads Regex dependency
