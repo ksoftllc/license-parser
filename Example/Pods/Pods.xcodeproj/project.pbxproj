@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0171C8CF1D349C93003A22F3 /* VersionThreeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171C8CE1D349C93003A22F3 /* VersionThreeParser.swift */; };
+		0171C8D11D349D34003A22F3 /* VersionTwoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171C8D01D349D34003A22F3 /* VersionTwoParser.swift */; };
 		01D2DD1C92EB87452CAF30B9367833C8 /* NMBObjCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FEA8BC649FEF0C333E7AA13960F66B /* NMBObjCMatcher.swift */; };
 		021D46B1CE6D25B1D5597574F97DBCF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC405455F8E20BD0434D9D3E3D2879A /* Foundation.framework */; };
 		0827735D297EEABFD811FE333206FD8D /* NMBExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0D15FAE99FE4AB58491102F5DCD17 /* NMBExpectation.swift */; };
@@ -142,6 +144,8 @@
 
 /* Begin PBXFileReference section */
 		006DE8F0E7AF57F83456244DC6476758 /* SourceLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceLocation.swift; path = Sources/Nimble/Utils/SourceLocation.swift; sourceTree = "<group>"; };
+		0171C8CE1D349C93003A22F3 /* VersionThreeParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionThreeParser.swift; sourceTree = "<group>"; };
+		0171C8D01D349D34003A22F3 /* VersionTwoParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionTwoParser.swift; sourceTree = "<group>"; };
 		018A100A0A84FD120E9379C983894A25 /* Pods-LicenseParser_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LicenseParser_Tests.modulemap"; sourceTree = "<group>"; };
 		0225D62098961D7468D0231BB57898B9 /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
 		03767180B276B0DBD0BE1BF6FC2684B4 /* License.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
@@ -446,6 +450,8 @@
 				2FB646F56B02D9AE909C13A4B86FCEB4 /* VersionFiveParser.swift */,
 				86C0936D9EB8B9DB5C491A27F577536A /* VersionFourParser.swift */,
 				C22A9F7E701912986CD2F99C2A2C5A06 /* VersionOneFieldParser.swift */,
+				0171C8CE1D349C93003A22F3 /* VersionThreeParser.swift */,
+				0171C8D01D349D34003A22F3 /* VersionTwoParser.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -788,6 +794,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0171C8D11D349D34003A22F3 /* VersionTwoParser.swift in Sources */,
 				23347E8A71BA8C3221FD2A60C491A1EA /* AcceptanceCalculator.swift in Sources */,
 				4ECF0D77444B3B7D1E2C9FB82F26897F /* enum.swift in Sources */,
 				9265D2985FCBFA79DC34298B902E64E4 /* FieldMapper.swift in Sources */,
@@ -799,6 +806,7 @@
 				5124A05502E3E216B47526FF9C96DD0A /* VersionEightParser.swift in Sources */,
 				1DB8F7AAB6D9D62F895570932FBA4699 /* VersionFiveParser.swift in Sources */,
 				CFC30DC382A3102A695CB160BD952EC0 /* VersionFourParser.swift in Sources */,
+				0171C8CF1D349C93003A22F3 /* VersionThreeParser.swift in Sources */,
 				B0E53399B9C3CA200B6F22F4D46B6D73 /* VersionOneFieldParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

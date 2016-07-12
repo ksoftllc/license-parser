@@ -51,7 +51,13 @@ class VersionOneFieldParser: FieldParser{
     guard !height.isEmpty else { return nil }
     guard !inches.isEmpty else { return nil }
 
-    return (Double(height)! * 12) + Double(inches)!
+    let calculatedHeight = (Double(height)! * 12) + Double(inches)!
+
+    if heightInFeetAndInches.containsString("cm"){
+      return Double(round(calculatedHeight * FieldParser.INCHES_PER_CENTIMETER))
+    }else{
+      return calculatedHeight
+    }
   }
 
   override func parseNameSuffix() -> NameSuffix {

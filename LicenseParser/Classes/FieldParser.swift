@@ -32,6 +32,8 @@ public protocol FieldParsing{
 }
 
 class FieldParser: FieldParsing{
+  static let INCHES_PER_CENTIMETER: Double = 0.393701
+
   let regex: Regex = Regex()
   var fieldMapper: FieldMapping
   var data: String
@@ -218,7 +220,14 @@ class FieldParser: FieldParsing{
   }
 
   func parseHeight() -> Double?{
-    return parseDouble("height")
+    guard let heightString = parseString("height") else { return nil }
+    guard let height = parseDouble("height") else { return nil }
+
+    if heightString.containsString("cm"){
+      return Double(round(height * FieldParser.INCHES_PER_CENTIMETER))
+    }else{
+      return height
+    }
   }
 
 }
