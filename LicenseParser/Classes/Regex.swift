@@ -1,11 +1,3 @@
-//
-//  Regex.swift
-//  Pods
-//
-//  Created by Clayton Lengel-Zigich on 7/11/16.
-//
-//
-
 import Foundation
 
 class Regex{

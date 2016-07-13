@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class VersionTwoFieldMapper: FieldMapper{
+class VersionTwoFieldMapper: FieldMapper{
   override init(){
     super.init()
     self.fields["firstName"] = "DCT"

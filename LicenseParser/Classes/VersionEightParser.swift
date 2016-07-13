@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class VersionEightFieldMapper: FieldMapper{
+class VersionEightFieldMapper: FieldMapper{
 }
 
 class VersionEightFieldParser: FieldParser{

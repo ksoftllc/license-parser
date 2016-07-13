@@ -1,20 +1,25 @@
-//
-//  FieldMapper.swift
-//  Pods
-//
-//  Created by Clayton Lengel-Zigich on 6/9/16.
-//
-//
-
 import Foundation
 
+/// Defines Field Mapping Behavior
 public protocol FieldMapping{
+  /// A list of AAMVA field designator mappings (e.g. "firstName" => "DAC")
   var fields: [String: String] { get set }
 
+  /**
+    Determine the AAMVA field designator for a particular human readable key.
+
+    - Parameters:
+      - key: The human readable key
+
+    - Returns: The AAMVA field designator
+  */
   func fieldFor(key: String) -> String
 }
 
+/// A basic Field Mapping implementation based on the AAMVA Version 8 standard
 public class FieldMapper: FieldMapping{
+
+  /// A list of AAMVA field designator mappings (e.g. "firstName" => "DAC")
   public var fields: [String: String] = [
     "firstName"               : "DAC",
     "lastName"                : "DCS",
@@ -46,11 +51,17 @@ public class FieldMapper: FieldMapping{
     "suffix"                  : "DCU"
   ]
 
+  /**
+    Determine the AAMVA field designator for a particular human readable key.
+
+    - Parameters:
+      - key: The human readable key
+
+    - Returns: The AAMVA field designator
+  */
   public func fieldFor(key: String) -> String {
     guard fields.keys.contains(key) else { return "" }
 
     return fields[key]!
   }
 }
-
-

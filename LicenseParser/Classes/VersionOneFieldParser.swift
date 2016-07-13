@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class VersionOneFieldMapper: FieldMapper{
+class VersionOneFieldMapper: FieldMapper{
   override init(){
     super.init()
 

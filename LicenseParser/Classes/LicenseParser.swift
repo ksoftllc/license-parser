@@ -1,23 +1,33 @@
-//
-//  LicenseParser.swift
-//  Pods
-//
-//  Created by Clayton Lengel-Zigich on 5/13/16.
-//
-//
-
 import Foundation
 
+/// A Parser for creating ParsedLicense objects
 public class Parser{
   let regex: Regex = Regex()
-  var data: String
-  var fieldParser: FieldParsing
-  
+
+  /// The AAMVA PDF417 raw barcode data being used for parsing
+  public var data: String
+
+  /// The FieldParsing object to aide in parsing individual fields
+  public var fieldParser: FieldParsing
+
+  /**
+    Initializes a new Parser
+
+    - Parameters:
+      - data: The AAMVA PDF417 raw barcode data
+
+    - Returns: A configured Parser ready to parse and generate a ParsedLicense
+  */
   public init(data: String){
     self.data = data
     self.fieldParser = FieldParser(data: data)
   }
-  
+
+  /**
+    Parses the AAMVA PDF417 raw barcode data based on the specific AAMVA document version
+
+    - Returns: A ParsedLicense with all available parsed fields
+  */
   public func parse() -> ParsedLicense{
     self.fieldParser = versionBasedFieldParsing(parseVersion())
 
@@ -78,7 +88,7 @@ public class Parser{
     }
   }
 
-  func parseVersion() -> String?{
+  private func parseVersion() -> String?{
     return regex.firstMatch("\\d{6}(\\d{2})\\w+", data: data)
   }
 
