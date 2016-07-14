@@ -2,6 +2,10 @@
 [![Build Status](http://img.shields.io/travis/sealz/license-parser.svg?style=flat-square)](https://travis-ci.org/sealz/license-parser)
 [![Code Climate](http://img.shields.io/codeclimate/github/sealz/license-parser.svg?style=flat-square)](https://codeclimate.com/github/sealz/license-parser)
 [![Issue Count](https://codeclimate.com/github/sealz/license-parser/badges/issue_count.svg)](https://codeclimate.com/github/sealz/license-parser)
+[![CocoaPods](https://img.shields.io/cocoapods/l/LicenseParser.svg?maxAge=2592000)]()
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/LicenseParser.svg?maxAge=2592000)]()
+[![CocoaPods](https://img.shields.io/cocoapods/dt/LicenseParser.svg?maxAge=2592000)]()
+[![CocoaPods](https://img.shields.io/cocoapods/at/LicenseParser.svg?maxAge=2592000)]()
 
 Easily parse the information within PDF-417 barcodes found on the back of
 US and Canadian driver's licenses adhering to the AAMVA Version 8
