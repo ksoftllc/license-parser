@@ -151,6 +151,20 @@ it, simply add the following line to your Podfile:
 pod "LicenseParser"
 ```
 
+## Contributing
+
+**Guidelines**
+
+* Write tests
+* Leave the code better than when you found it
+* Be aware of Code Climate
+* Add or improve documentation
+* Small and frequent commits
+
+1. Fork the repository
+2. Submit a pull request
+3. Become a contributor once the pull request is accepted!
+
 ## License
 
 LicenseParser is available under the MIT license. See the LICENSE file for more info.
