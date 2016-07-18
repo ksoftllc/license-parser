@@ -171,6 +171,14 @@ pod "LicenseParser"
 
 ### Environment Setup
 
+**Prerequisites**
+
+* Cocoapods Installed
+* XCode 7+
+* Swift 2+
+
+**Steps**
+
 1. Fork the project
 2. Clone your forked repo
 3. Pod Install
